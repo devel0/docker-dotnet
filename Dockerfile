@@ -7,6 +7,9 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 	apt-get update && \
 	apt-get install -y dotnet-sdk-2.1.4
 
+# libgdiplus
+RUN apt-get install -y libgdiplus
+
 # bower
 RUN npm install -g bower
 
