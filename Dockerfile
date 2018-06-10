@@ -1,11 +1,17 @@
-FROM searchathing/ubuntu
+FROM searchathing/ubuntu:bionic
 
 # dotnet core
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
-	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
-	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list' && \
-	apt-get update && \
-	apt-get install -y dotnet-sdk-2.1.4
+RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg && \
+sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/ && \
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list && \
+sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list && \
+sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
+sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+
+# net sdk
+RUN apt-get install -y apt-transport-https && \
+sudo apt-get update && \
+sudo apt-get install -y dotnet-sdk-2.1
 
 # libgdiplus
 RUN apt-get install -y libgdiplus

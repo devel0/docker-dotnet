@@ -6,4 +6,4 @@
 
 exdir=$(dirname `readlink -f "$0"`)
 
-docker build $args $* -t searchathing/dotnet -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/dotnet:bionic -f "$exdir"/Dockerfile "$exdir"/.
