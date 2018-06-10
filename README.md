@@ -2,6 +2,10 @@
 
 docker-ubuntu + donet development environment
 
+## news
+
+- [bionic version](https://github.com/devel0/docker-dotnet/tree/bionic)
+
 ## build image
 
 ```
