@@ -1,6 +1,10 @@
 # docker-dotnet
 
-docker-ubuntu + donet development environment
+docker-ubuntu + dotnet development environment
+
+## prerequisites
+
+- [docker-ubuntu bionic](https://github.com/devel0/docker-ubuntu/tree/bionic)
 
 ## build image
 
