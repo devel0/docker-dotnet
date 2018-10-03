@@ -9,6 +9,7 @@ docker-ubuntu + dotnet development environment
 ## build image
 
 ```
+git checkout bionic
 ./build.sh
 ```
 
