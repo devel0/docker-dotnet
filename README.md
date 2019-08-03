@@ -4,12 +4,13 @@ docker-ubuntu + dotnet development environment
 
 ## prerequisites
 
-- [docker-ubuntu bionic](https://github.com/devel0/docker-ubuntu/tree/bionic)
+- [docker-ubuntu server-mgr](https://github.com/devel0/docker-ubuntu/tree/server-mgr)
+- download [dotnet package](https://dotnet.microsoft.com/download/dotnet-core/3.0) into a Downloads folder ( change [package version](https://github.com/devel0/docker-dotnet/blob/9517ee1ba0731b2e9838da487faa28f7bc6efd02/build.sh#L7) as needed )
 
 ## build image
 
 ```
-git checkout bionic
+git checkout server-mgr
 ./build.sh
 ```
 
@@ -24,5 +25,5 @@ you can specify addictional docker build arguments, example:
 follow create a test named container running an interactive bash terminal
 
 ```
-docker run --name=test -ti searchathing/dotnet
+docker run --name=test -ti searchathing/dotnet:server-mgr
 ```
