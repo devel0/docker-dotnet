@@ -9,6 +9,7 @@ docker-ubuntu + donet development environment
 ## build image
 
 ```
+git checkout master
 ./build.sh
 ```
 
