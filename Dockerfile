@@ -1,22 +1,11 @@
-FROM searchathing/ubuntu:bionic
-
-# dotnet core
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg && \
-sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/ && \
-wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list && \
-sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list && \
-sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg && \
-sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
-
-# net sdk
-RUN apt-get install -y apt-transport-https && \
-sudo apt-get update && \
-sudo apt-get install -y dotnet-sdk-2.1
+FROM searchathing/ubuntu:server-mgr
 
 # libgdiplus
 RUN apt-get install -y libgdiplus
 
-# bower
-RUN npm install -g bower
+# dotnet core
+COPY Downloads/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz /tmp
+RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz
+RUN echo 'export PATH=$PATH:/opt/dotnet' >> ~/.bashrc
 
 CMD /bin/bash
