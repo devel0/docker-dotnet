@@ -4,10 +4,15 @@ FROM searchathing/ubuntu:server-mgr
 RUN apt-get install -y libgdiplus
 
 # dotnet core
+COPY Downloads/dotnet-sdk-2.2.401-linux-x64.tar.gz /tmp
+RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-2.2.401-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz
+
 COPY Downloads/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz /tmp
 RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/dotnet-sdk-3.0.100-preview7-012821-linux-x64.tar.gz
 
 ENV PATH "$PATH:/opt/dotnet"
+ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
+ENV DOTNET_ROOT /opt/dotnet
 
 ENTRYPOINT [ "/root/run-entrypoints.sh" ]
 
