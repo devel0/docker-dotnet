@@ -12,9 +12,9 @@ ENV DOTNET_ROOT /opt/dotnet
 COPY Downloads/dotnet-sdk-2.2.401-linux-x64.tar.gz /tmp
 RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-2.2.401-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/Downloads/dotnet-sdk-2.2.401-linux-x64.tar.gz
 
-# 3.0 preview
-COPY Downloads/dotnet-sdk-3.0.100-preview9-014004-linux-x64.tar.gz /tmp
-RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-3.0.100-preview9-014004-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/dotnet-sdk-3.0.100-preview9-014004-linux-x64.tar.gz
+# 3.0 rc1
+COPY Downloads/dotnet-sdk-3.0.100-rc1-014190-linux-x64.tar.gz /tmp
+RUN mkdir -p /opt/dotnet && tar xvf /tmp/dotnet-sdk-3.0.100-rc1-014190-linux-x64.tar.gz -C /opt/dotnet && rm -f /tmp/dotnet-sdk-3.0.100-rc1-014190-linux-x64.tar.gz
 
 ENTRYPOINT [ "/root/run-entrypoints.sh" ]
 

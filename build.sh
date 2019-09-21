@@ -4,7 +4,7 @@
 #
 # Example: ./build --network-dkbuild
 
-DOTNET_PACKAGE=dotnet-sdk-3.0.100-preview9-014004-linux-x64.tar.gz
+DOTNET_PACKAGE=dotnet-sdk-3.0.100-rc1-014190-linux-x64.tar.gz
 
 exdir=$(dirname `readlink -f "$0"`)
 
@@ -19,4 +19,4 @@ if [ ! -e "$DOWNLOADS/$DOTNET_PACKAGE" ]; then
 	exit 1
 fi
 
-docker build $args $* -t searchathing/dotnet:3.0-preview9 -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/dotnet:3.0-rc1 -f "$exdir"/Dockerfile "$exdir"/.
