@@ -10,6 +10,8 @@ docker-ubuntu + dotnet development environment
 ## build image
 
 ```sh
+git clone https://github.com/devel0/docker-dotnet.git
+cd docker-dotnet
 git checkout server-mgr
 ./build.sh
 ```
