@@ -9,14 +9,14 @@ docker-ubuntu + dotnet development environment
 
 ## build image
 
-```
+```sh
 git checkout server-mgr
 ./build.sh
 ```
 
 you can specify addictional docker build arguments, example:
 
-```
+```sh
 ./build.sh --network=dkbuild
 ```
 
@@ -24,6 +24,6 @@ you can specify addictional docker build arguments, example:
 
 follow create a test named container running an interactive bash terminal
 
-```
+```sh
 docker run --name=test -ti searchathing/dotnet:server-mgr
 ```
