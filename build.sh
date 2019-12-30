@@ -4,19 +4,19 @@
 #
 # Example: ./build --network-dkbuild
 
-DOTNET_PACKAGE=dotnet-sdk-3.0.100-linux-x64.tar.gz
+#DOTNET_PACKAGE=dotnet-sdk-3.0.100-linux-x64.tar.gz
 
 exdir=$(dirname `readlink -f "$0"`)
 
-DOWNLOADS="$exdir"/Downloads
+#DOWNLOADS="$exdir"/Downloads
 
-if [ ! -e "$DOWNLOADS" ]; then
-	mkdir "$DOWNLOADS"
-fi
+#if [ ! -e "$DOWNLOADS" ]; then
+#	mkdir "$DOWNLOADS"
+#fi
 
-if [ ! -e "$DOWNLOADS/$DOTNET_PACKAGE" ]; then
-	echo "missing $DOWNLOADS/$DOTNET_PACAKGE please download from https://dotnet.microsoft.com/download/dotnet-core/3.0"
-	exit 1
-fi
+#if [ ! -e "$DOWNLOADS/$DOTNET_PACKAGE" ]; then
+#	echo "missing $DOWNLOADS/$DOTNET_PACAKGE please download from https://dotnet.microsoft.com/download/dotnet-core/3.0"
+#	exit 1
+#fi
 
-docker build $args $* -t searchathing/dotnet:3.0.100-sdk -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/dotnet:3.1-sdk -f "$exdir"/Dockerfile "$exdir"/.
