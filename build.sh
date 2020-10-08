@@ -19,4 +19,4 @@ exdir=$(dirname `readlink -f "$0"`)
 #	exit 1
 #fi
 
-docker build $args $* -t searchathing/dotnet:3.1-sdk -f "$exdir"/Dockerfile "$exdir"/.
+docker build $args $* -t searchathing/dotnet:focal -f "$exdir"/Dockerfile "$exdir"/.
